@@ -1,6 +1,42 @@
 
 package modell;
 
-public class Festmeny {
+import java.io.File;
+import java.time.LocalDate;
+
+public class Festmeny extends KiallitasiTargy{
+    private File eleres;
+
+    public Festmeny(String cim, String keszito) throws HibasDatumException {
+       this(new File("kep.txt"),cim, keszito);
+    }
+    
+    public Festmeny(File eleres, String cim, String keszito) throws HibasDatumException {
+      this(new File("kep.txt"),LocalDate.now(), cim, keszito);
+    }
+
+    public Festmeny(File eleres, LocalDate letrehozas, String cim, String keszito) throws HibasDatumException {
+        super(letrehozas, cim, keszito);
+        this.eleres = eleres;
+    }
+    
+    public void megjelenit(){
+        if(eleres.exists()){
+            System.out.println("Megjelenítés folyamatban...");
+        }else{
+            System.out.println("Nem lehet megjeleníteni!");
+        }
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        String kiir = super.toString();
+        return kiir+"Festmény{" + "elérés=" + eleres + '}';
+    }
+    
+    
+    
     
 }
