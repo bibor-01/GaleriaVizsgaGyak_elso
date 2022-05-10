@@ -8,11 +8,15 @@ public class Festmeny extends KiallitasiTargy{
     private File eleres;
 
     public Festmeny(String cim, String keszito) throws HibasDatumException {
-       this(new File("kep.txt"),cim, keszito);
+       this(new File("nincs"),cim, keszito);
+    }
+
+    public Festmeny(LocalDate letrehozas, String cim, String keszito) throws HibasDatumException {
+       this(new File("nincs"),letrehozas, cim, keszito);
     }
     
     public Festmeny(File eleres, String cim, String keszito) throws HibasDatumException {
-      this(new File("kep.txt"),LocalDate.now(), cim, keszito);
+      this(eleres,LocalDate.now(), cim, keszito);
     }
 
     public Festmeny(File eleres, LocalDate letrehozas, String cim, String keszito) throws HibasDatumException {
